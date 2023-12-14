@@ -11,7 +11,7 @@ services:
       - .:/code
     tty: true
     env_file:
-      - .env.dev
+      - .env.prod
   image_web:
     container_name: image_web
     build:
