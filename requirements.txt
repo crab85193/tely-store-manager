@@ -1,0 +1,13 @@
+certifi==2023.11.17
+charset-normalizer==3.3.2
+click==8.1.7
+decorator==5.1.1
+future==0.18.3
+geocoder==1.38.1
+googlemaps==4.10.0
+idna==3.6
+mysqlclient==2.2.0
+ratelim==0.1.6
+requests==2.31.0
+six==1.16.0
+urllib3==2.1.0

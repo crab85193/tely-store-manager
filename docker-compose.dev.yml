@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: containers/python/Dockerfile
+    volumes:
+      - .:/code
+    tty: true
+    env_file:
+      - .env.dev
+    networks:
+      - shared_network
+  image_web:
+    container_name: image_web
+    build:
+      context: .
+      dockerfile: containers/nginx/Dockerfile
+    volumes:
+      - ./static:/static
+    ports:
+      - 80:80
+    networks:
+      - shared_network
+volumes:
+  static:
+
+networks:
+  shared_network:
+    external: true

@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: containers/python/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - .:/code
+    tty: true
+    env_file:
+      - .env.dev
+  image_web:
+    container_name: image_web
+    build:
+      context: .
+      dockerfile: containers/nginx/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./static:/static
+    ports:
+      - 80:80
+volumes:
+  static:
