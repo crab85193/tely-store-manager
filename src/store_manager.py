@@ -31,7 +31,7 @@ class StoreManager:
             recommend = 1
             number_of_reservation = 0
             
-            query = f"INSERT INTO main_app_store VALUES('{id}', '{place_id}', '{name}', '{type}', '{open}', '{rating}', '{price_level}', '{record_datetime}', {archive}, {number_of_reservation}, {recommend}, '{photo_url}')"
+            query = f"INSERT INTO main_app_store(id, place_id, name, type, open, rating, price_level, record_datetime, archive, number_of_reservation, recommend, photo_url) VALUES('{id}', '{place_id}', '{name}', '{type}', '{open}', '{rating}', '{price_level}', '{record_datetime}', {archive}, {number_of_reservation}, {recommend}, '{photo_url}')"
             
             self.__cursor.execute(query)
             self.__db.commit()
