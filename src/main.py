@@ -7,7 +7,7 @@ def main():
     store_manager = StoreManager()
     api = GoogleAPIController()
 
-    target_dir = '../static'
+    target_dir = './static'
 
     shutil.rmtree(target_dir)
     os.mkdir(target_dir)
