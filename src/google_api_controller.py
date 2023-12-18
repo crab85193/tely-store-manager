@@ -33,7 +33,7 @@ class GoogleAPIController():
             
     def get_store_photo_url(self, photo_reference, place_id):
         self.download_place_photo(photo_reference, place_id)
-        return f"//{os.environ.get('IMAGE_SERVER_ADDRESS')}/static/{place_id}.jpg"
+        return f"{os.environ.get('IMAGE_SERVER_PROTOCOL')}://{os.environ.get('IMAGE_SERVER_ADDRESS')}/static/{place_id}.jpg"
         
     def search_store(self, keyword):
         location = geocoder.ip('me').latlng
