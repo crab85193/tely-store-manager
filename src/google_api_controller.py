@@ -21,7 +21,7 @@ class GoogleAPIController():
 
         if response.status_code == 200:
             if file_name:
-                f_name = os.environ.get("SAVE_IMG_DIR") + "/" + file_name
+                f_name = os.environ.get("SAVE_IMG_DIR") + "/" + file_name + ".jpg"
             else:
                 f_name = os.environ.get("SAVE_IMG_DIR") + "/" + photo_reference + ".jpg"
 
@@ -31,9 +31,9 @@ class GoogleAPIController():
         else:
             print("Error: Unable to download the image.")
             
-    def get_store_photo_url(self, photo_reference):
-        self.download_place_photo(photo_reference)
-        return f"{os.environ.get('IMAGE_SERVER_PROTOCOL')}://{os.environ.get('IMAGE_SERVER_ADDRESS')}/static/{photo_reference}.jpg"
+    def get_store_photo_url(self, photo_reference, place_id):
+        self.download_place_photo(photo_reference, place_id)
+        return f"{os.environ.get('IMAGE_SERVER_PROTOCOL')}://{os.environ.get('IMAGE_SERVER_ADDRESS')}/static/{place_id}.jpg"
         
     def search_store(self, keyword):
         location = geocoder.ip('me').latlng
@@ -57,7 +57,7 @@ class GoogleAPIController():
             except Exception as e:
                 store_info["open"] = None
             try:
-                store_info["photos"] = self.get_store_photo_url(place["photos"][0]["photo_reference"])
+                store_info["photos"] = self.get_store_photo_url(place["photos"][0]["photo_reference"], place["place_id"])
             except Exception as e:
                 print(e)
                 store_info["photos"] = ""
