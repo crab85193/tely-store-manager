@@ -32,7 +32,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      DOMAINS: 'tely-store.st.ie.u-ryukyu.ac.jp -> http://web:80'
+      DOMAINS: 'tely-store.st.ie.u-ryukyu.ac.jp -> http://image-web:80'
       STAGE: 'production'
       #FORCE_RENEW: 'true'
     volumes:
