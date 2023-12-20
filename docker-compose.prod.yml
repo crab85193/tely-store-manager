@@ -37,5 +37,7 @@ services:
       #FORCE_RENEW: 'true'
     volumes:
       - ./containers/https-portal/ssl_certs:/var/lib/https-portal
+    depends_on:
+      - image-web
 volumes:
   static:
