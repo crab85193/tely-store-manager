@@ -1,11 +1,11 @@
 version: "3.9"
 
 services:
-  python:
-    container_name: python
+  store-manager:
+    container_name: store-manager
     build:
       context: .
-      dockerfile: containers/python/Dockerfile
+      dockerfile: containers/store-manager/Dockerfile
     volumes:
       - .:/code
     tty: true
@@ -13,8 +13,8 @@ services:
       - .env.dev
     networks:
       - shared_network
-  image_web:
-    container_name: image_web
+  image-web:
+    container_name: image-web
     build:
       context: .
       dockerfile: containers/nginx/Dockerfile

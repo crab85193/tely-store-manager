@@ -1,19 +1,19 @@
 version: "3.9"
 
 services:
-  python:
-    container_name: python
+  store-manager:
+    container_name: store-manager
     build:
       context: .
-      dockerfile: containers/python/Dockerfile
+      dockerfile: containers/store-manager/Dockerfile
     restart: unless-stopped
     volumes:
       - .:/code
     tty: true
     env_file:
       - .env.prod
-  image_web:
-    container_name: image_web
+  image-web:
+    container_name: image-web
     build:
       context: .
       dockerfile: containers/nginx/Dockerfile
@@ -22,5 +22,20 @@ services:
       - ./static:/static
     ports:
       - 80:80
+  ssl-web:
+    container_name: ssl-web
+    build:
+      context: .
+      dockerfile: containers/https-portal/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      DOMAINS: 'tely-store.st.ie.u-ryukyu.ac.jp -> http://web:80'
+      STAGE: 'production'
+      #FORCE_RENEW: 'true'
+    volumes:
+      - ./containers/https-portal/ssl_certs:/var/lib/https-portal
 volumes:
   static:

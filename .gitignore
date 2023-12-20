@@ -8,3 +8,5 @@
 
 static/*
 !static/.gitkeep
+
+containers/https-portal/ssl_certs/

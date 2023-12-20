@@ -2,14 +2,14 @@
 
 CURRENT_DIR=`cd $(dirname $0) && pwd`
 
-container_id=`docker ps -q -f status=running -f name=python`
+container_id=`docker ps -q -f status=running -f name=store-manager`
 
 if [ -z "$container_id" ]; then
-    echo "python is not running"
+    echo "store-manager is not running"
     exit 0
 fi
 
-docker exec -it python python src/main.py
+docker exec -it store-manager python src/main.py
 
 docker-compose -f docker-compose.prod.yml down
 
