@@ -9,7 +9,7 @@
 
 ![logo](./docs/img/logo-w.png)
 
-[English README is here](./README.md)
+[日本語版はREADMEはこちら](./README.ja.md)
 
 ## Description
 Store information management program used by the proxy telephone reservation service [Tely](https://github.com/crab85193/Tely).

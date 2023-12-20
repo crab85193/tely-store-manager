@@ -9,7 +9,7 @@
 
 ![logo](./docs/img/logo-w.png)
 
-[日本語版はREADMEはこちら](./README.ja.md)
+[English README is here](./README.md)
 
 ## Description
 代理電話予約サービス[Tely](https://github.com/crab85193/Tely)で使用する店舗情報管理プログラム。
