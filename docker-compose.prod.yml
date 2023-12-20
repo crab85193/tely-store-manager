@@ -21,7 +21,7 @@ services:
     volumes:
       - ./static:/static
     ports:
-      - 80:80
+      - 8000:80
   ssl-web:
     container_name: ssl-web
     build:
@@ -32,7 +32,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      DOMAINS: 'tely-store.st.ie.u-ryukyu.ac.jp -> http://image-web:80'
+      DOMAINS: 'tely-store.st.ie.u-ryukyu.ac.jp -> http://image-web:8000'
       STAGE: 'production'
       #FORCE_RENEW: 'true'
     volumes:
